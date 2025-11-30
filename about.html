@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Amin Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="about-page">
+    <section class="about">
+      <div class="about-inner">
+        <h1 class="section-title">About Me</h1>
+        <p class="about-text">Hi — I'm Amin Mammadli, an electrical & electronics engineering student with a passion for building and experimenting. I believe in learning through hands-on experience, whether it's designing PCBs, programming microcontrollers, or creating web projects.</p>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon">⚡</div>
+            <h3>Electronics</h3>
+            <p>Circuit design, PCB layout, and embedded systems development</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Programming</h3>
+            <p>Microcontroller programming, Python, and web development</p>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon">🛠️</div>
+            <h3>Making</h3>
+            <p>DIY projects, prototyping, and hardware experiments</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./background.js"></script>
+  <script>
+    (function(){
+      function start(){
+        if (window.initBackground) {
+          window.initBackground('bg');
+        } else {
+          console.error('initBackground not available');
+        }
+      }
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', start);
+      } else {
+        start();
+      }
+    })();
+  </script>
+</body>
+</html>

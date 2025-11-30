@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Amin Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="projects" id="projects">
+    <div class="projects-inner">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <!-- Logic Gates project (compact thumbnail + modal) -->
+        <article class="project-card compact">
+          <div class="video-thumb-wrap" data-video-id="6QZ8YGZdRSw" role="button" aria-label="Play Logic Gates video">
+            <img src="https://img.youtube.com/vi/6QZ8YGZdRSw/hqdefault.jpg" alt="Logic Gates thumbnail">
+            <div class="play-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="project-content">
+            <h3>Logic Gates</h3>
+            <p>Short demo of basic logic gates (AND, OR, NOT, XOR) and their behavior in simple circuits.</p>
+            <div class="project-tags">
+              <span>Digital Logic</span>
+              <span>Electronics</span>
+              <span>Demo</span>
+            </div>
+          </div>
+        </article>
+        
+        <!-- Arduino — Godfather Theme (compact like other project) -->
+        <article class="project-card compact">
+          <div class="video-thumb-wrap" data-video-id="ou10g-iaeBY" role="button" aria-label="Play Arduino — Godfather Theme">
+            <img src="https://img.youtube.com/vi/ou10g-iaeBY/hqdefault.jpg" alt="Arduino — Godfather thumbnail">
+            <div class="play-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="project-content">
+            <h3>Arduino — Godfather Theme</h3>
+            <p>Arduino project that performs the Godfather theme song using a piezo buzzer and tone timings. Short demo video.</p>
+            <div class="project-tags">
+              <span>Arduino</span>
+              <span>Music</span>
+              <span>Embedded</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <script src="./background.js"></script>
+  <script>
+    (function(){
+      function start(){
+        if (window.initBackground) window.initBackground('bg');
+        const thumbWraps = document.querySelectorAll('.video-thumb-wrap');
+        const modal = document.createElement('div');
+        modal.className = 'video-modal';
+        modal.innerHTML = '<div class="modal-inner"><button class="modal-close" aria-label="Close">✕</button><iframe src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+        document.body.appendChild(modal);
+        const iframe = modal.querySelector('iframe');
+        const closeBtn = modal.querySelector('.modal-close');
+
+        function openModal(id){
+          if (window.location.protocol === 'file:') {
+            window.open('https://www.youtube.com/watch?v=' + id, '_blank');
+            return;
+          }
+          iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+          modal.classList.add('open');
+        }
+        function closeModal(){
+          modal.classList.remove('open');
+          iframe.src = '';
+        }
+
+        thumbWraps.forEach(w => {
+          w.addEventListener('click', () => openModal(w.dataset.videoId));
+          w.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(w.dataset.videoId); } });
+        });
+        closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+      }
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', start);
+      } else {
+        start();
+      }
+    })();
+  </script>
+</body>
+</html>

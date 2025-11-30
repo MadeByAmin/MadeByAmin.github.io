@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amin Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-header">
+          <div class="profile-pic" aria-hidden="true" style="background-image: url('profile.jpg')"></div>
+          <div class="hero-title-group">
+            <h1 class="hero-title">Amin Mammadli</h1>
+            <p class="hero-role">Electrical & Electronics Engineering student</p>
+          </div>
+        </div>
+        <p class="hero-subtitle">I'm a student passionate about electronics and engineering. I transform ideas into reality through hands-on projects and innovative experiments.</p>
+        <div class="hero-ctas">
+          <a href="projects.html" class="btn primary">View Projects</a>
+          <a href="contact.html" class="btn">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <section class="projects" id="projects">
+    <div class="projects-inner">
+      <h2 class="section-title">Future Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card">
+          <img class="project-image" src="https://m.media-amazon.com/images/I/71Wrf1kA9iL.jpg" alt="LED Matrix Display">
+          <div class="project-content">
+            <h3>LED Matrix Display</h3>
+            <p>Custom-built 16x16 LED matrix with Arduino-based controller for displaying animations and text.</p>
+            <div class="project-tags">
+              <span>Arduino</span>
+              <span>Electronics</span>
+              <span>C++</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img class="project-image" src="https://images.surferseo.art/c4d8c4e2-313b-4804-b8dc-ac2e59ea11fd.png" alt="Smart Home Sensors">
+          <div class="project-content">
+            <h3>Smart Home Sensors</h3>
+            <p>Network of environmental sensors reporting temperature, humidity, and air quality data.</p>
+            <div class="project-tags">
+              <span>IoT</span>
+              <span>ESP32</span>
+              <span>Python</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="tech-stack">
+    <div class="tech-inner">
+      <h2 class="section-title">Technologies I Work With</h2>
+      <div class="tech-icons">
+        <div class="tech-icon">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/arduino/arduino-original.svg" alt="Arduino">
+          <span>Arduino</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+          <span>Python</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++">
+          <span>C++</span>
+        </div>
+        <div class="tech-icon">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
+          <span>JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="./background.js"></script>
+  <script>
+    (function(){
+      function start(){
+        if (window.initBackground) {
+          window.initBackground('bg');
+        } else {
+          console.error('initBackground not available');
+        }
+      }
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', start);
+      } else {
+        start();
+      }
+    })();
+  </script>
+</body>
+</html>
